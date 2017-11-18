@@ -46,7 +46,7 @@ class Parameters(object):
 
     @property
     def operand(self):
-        return(self.__numberOfTerms)
+        return(self.__operand)
 
     @operand.setter
     def operand(self, n):
@@ -55,7 +55,7 @@ class Parameters(object):
             print('       The default value ( n =', CONST_DEF_OPERAND_VAL, ') is used.')
             print('')
             n = CONST_DEF_OPERAND_VAL
-        self.__numberOfTerms = n
+        self.__operand = n
 
     @property
     def functionIndex(self):
