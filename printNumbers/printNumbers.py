@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 #
-# PrintNumbers.py
+# printNumbers.py
 #
 # This file is part of PrintNumbers.
 #
 # Copyright (C) 2017 G. Trensch, SLNS, JSC, FZ Jülich
 #
-# Fibonacci is free software: you can redistribute it and/or modify
+# PrintNumbers is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
@@ -26,8 +26,8 @@
 
 """
 Usage:
-  PrintNumbers.py -h --help
-  PrintNumbers.py [--fibonacci|--factorial] <numberOfTerms>
+  printNumbers.py -h --help
+  printNumbers.py [--fibonacci|--factorial] <operand>
 
 Options:
   -h --help       Print usage.
@@ -36,29 +36,9 @@ Options:
 """
 
 from docopt import docopt
-from Parameters import *
-import math
-
-#
-# FIBONACCI
-#
-def FibonacciRecursion(n):
-    if n <= 1:
-        return n
-    else:
-        return(FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2))
- 
-def ComputeFibonacciSequence(n):
-    sequence = []
-    for i in range(n):
-        sequence.append( FibonacciRecursion(i))
-    return(sequence)
-
-#
-# FACTORIAL
-#
-def ComputeFactorial(n):
-    return(math.factorial(n))
+from parameters import *
+from functions.fibonacci import *
+from functions.factorial import *
 
 #
 # FUNCTION TABLE
@@ -71,15 +51,16 @@ functionTable = { CONST_FUNC_CODE_FIBONACCI : ComputeFibonacciSequence,
 # MAIN ENTRY
 #
 if __name__ == '__main__':
-    # Process command line parameters.
+
+    # Process command line arguments.
     params = Parameters(docopt(__doc__, version = CONST_VERSION))
     params.PrintParameters()
 
-    # Call corresponding function with <functionIndex> from FUNCTION TABLE.
-    result = functionTable[params.functionIndex](params.numberOfTerms)
+    # Call corresponding function with <functionIndex> from <functionTable>.
+    result = functionTable[params.functionIndex](params.operand)
 
     # Print results depending on the executed function.
     if params.functionIndex == CONST_FUNC_CODE_FIBONACCI:
-        print('Fibonacci Sequence for n = ' + str(params.numberOfTerms) + ':', result)
+        print('Fibonacci Sequence for n = ' + str(params.operand) + ':', result)
     elif params.functionIndex == CONST_FUNC_CODE_FACTORIAL:
-        print('Factorial: ' + str(params.numberOfTerms) + '! =', str(result))
+        print('Factorial: ' + str(params.operand) + '! =', str(result))
