@@ -28,10 +28,10 @@ def FibonacciRecursion(n):
     else:
         return (FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2))
 
-def ComputeFibonacciSequence(n):
+def FibonacciSequence(n):
     '''
     :param n:   Operand
-    :return:    fib(n)
+    :return:    fib(n) as list of fibonacci numbers, [0, 1, 1, 2, ... ]
     '''
     sequence = []
     for i in range(n):

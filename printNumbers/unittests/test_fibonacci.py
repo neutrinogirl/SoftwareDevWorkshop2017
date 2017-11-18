@@ -32,13 +32,13 @@ from functions.fibonacci import *
 class TestFibonacci(unittest.TestCase):
 
     def test_value_1(self):
-        self.assertEqual(ComputeFibonacciSequence(1), [0] )
+        self.assertEqual(FibonacciSequence(1), [0] )
 
     def test_value_2(self):
-        self.assertEqual(ComputeFibonacciSequence(2), [0, 1])
+        self.assertEqual(FibonacciSequence(2), [0, 1])
 
     def test_value_10(self):
-        self.assertEqual(ComputeFibonacciSequence(10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+        self.assertEqual(FibonacciSequence(10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
 
 
 def suite():

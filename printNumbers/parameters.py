@@ -51,9 +51,9 @@ class Parameters(object):
     @operand.setter
     def operand(self, n):
         if n <= 0 or n > CONST_MAX_OPERAND_VAL:
-            print("Error: The number of terms needs to be in the following range: 0 < n <=", CONST_MAX_OPERAND_VAL)
-            print("       The default value will be used.")
-            print("")
+            print('Error: Operand out of range: 0 < <operand> <=', CONST_MAX_OPERAND_VAL)
+            print('       The default value ( n =', CONST_DEF_OPERAND_VAL, ') is used.')
+            print('')
             n = CONST_DEF_OPERAND_VAL
         self.__numberOfTerms = n
 
@@ -66,9 +66,6 @@ class Parameters(object):
         self.__functionIndex = value
 
     def PrintParameters(self):
-        print('')
-        print(CONST_VERSION_STRING)
-        print('')
         print('Following Parameters are in use:')
         print('--------------------------------')
         print('Function Code: ', self.functionIndex)

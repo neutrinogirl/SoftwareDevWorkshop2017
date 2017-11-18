@@ -43,14 +43,17 @@ from functions.factorial import *
 #
 # FUNCTION TABLE
 #
-functionTable = { CONST_FUNC_CODE_FIBONACCI : ComputeFibonacciSequence,
-                  CONST_FUNC_CODE_FACTORIAL : ComputeFactorial,
+functionTable = { CONST_FUNC_CODE_FIBONACCI : FibonacciSequence,
+                  CONST_FUNC_CODE_FACTORIAL : Factorial,
                 }
 
 #
 # MAIN ENTRY
 #
 if __name__ == '__main__':
+    print('')
+    print(CONST_VERSION_STRING)
+    print('')
 
     # Process command line arguments.
     params = Parameters(docopt(__doc__, version = CONST_VERSION))
@@ -61,6 +64,6 @@ if __name__ == '__main__':
 
     # Print results depending on the executed function.
     if params.functionIndex == CONST_FUNC_CODE_FIBONACCI:
-        print('Fibonacci Sequence for n = ' + str(params.operand) + ':', result)
+        print('fib(' + str(params.operand) + ') =', result)
     elif params.functionIndex == CONST_FUNC_CODE_FACTORIAL:
-        print('Factorial: ' + str(params.operand) + '! =', str(result))
+        print(str(params.operand) + '! =', str(result))

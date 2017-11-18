@@ -21,7 +21,7 @@
 
 import math
 
-def ComputeFactorial(n):
+def Factorial(n):
     '''
     :param n:  Operand
     :return:   n!

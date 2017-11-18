@@ -32,16 +32,16 @@ from functions.factorial import *
 class TestFactorial(unittest.TestCase):
 
     def test_value_0(self):
-        self.assertEqual(ComputeFactorial(0), 1)
+        self.assertEqual(Factorial(0), 1)
 
     def test_value_1(self):
-        self.assertEqual(ComputeFactorial(1), 1)
+        self.assertEqual(Factorial(1), 1)
 
     def test_value_2(self):
-        self.assertEqual(ComputeFactorial(2), 2)
+        self.assertEqual(Factorial(2), 2)
 
     def test_value_20(self):
-        self.assertEqual(ComputeFactorial(20), 2432902008176640000)
+        self.assertEqual(Factorial(20), 2432902008176640000)
 
 
 def suite():
