@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# PrintNumbers.py
+# printNumbers.py
 #
 # This file is part of PrintNumbers.
 #
@@ -26,8 +26,8 @@
 
 """
 Usage:
-  PrintNumbers.py -h --help
-  PrintNumbers.py [--fibonacci|--factorial] <numberOfTerms>
+  printNumbers.py -h --help
+  printNumbers.py [--fibonacci|--factorial] <numberOfTerms>
 
 Options:
   -h --help       Print usage.
@@ -36,29 +36,9 @@ Options:
 """
 
 from docopt import docopt
-from Parameters import *
-import math
-
-#
-# FIBONACCI
-#
-def FibonacciRecursion(n):
-    if n <= 1:
-        return n
-    else:
-        return(FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2))
- 
-def ComputeFibonacciSequence(n):
-    sequence = []
-    for i in range(n):
-        sequence.append( FibonacciRecursion(i))
-    return(sequence)
-
-#
-# FACTORIAL
-#
-def ComputeFactorial(n):
-    return(math.factorial(n))
+from parameters import *
+from functions.fibonacci import *
+from functions.factorial import *
 
 #
 # FUNCTION TABLE
@@ -71,6 +51,7 @@ functionTable = { CONST_FUNC_CODE_FIBONACCI : ComputeFibonacciSequence,
 # MAIN ENTRY
 #
 if __name__ == '__main__':
+
     # Process command line parameters.
     params = Parameters(docopt(__doc__, version = CONST_VERSION))
     params.PrintParameters()

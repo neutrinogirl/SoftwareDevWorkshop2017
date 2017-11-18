@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Parameters.py
+# parameters.py
 #
 # This file is part of PrintNumbers.
 #
